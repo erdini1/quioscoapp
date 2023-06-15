@@ -1,22 +1,10 @@
-import { PrismaClient } from "@prisma/client"
+import Layout from "../layout/Layout"
 
-export default function Home({ categorias }) {
-  // console.log(categorias)
-
+export default function Home() {
 
   return (
-    <h1>Next JS</h1>
+    <Layout>
+      <h1>Next JS</h1>
+    </Layout>
   )
-}
-
-
-export const getServerSideProps = async () => {
-  const prisma = new PrismaClient()
-  const categorias = await prisma.categoria.findMany()
-
-  return {
-    props: {
-      categorias,
-    }
-  }
 }
