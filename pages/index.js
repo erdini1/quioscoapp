@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client"
 
 export default function Home({ categorias }) {
-  console.log(categorias)
+  // console.log(categorias)
 
-  
+
   return (
     <h1>Next JS</h1>
   )
