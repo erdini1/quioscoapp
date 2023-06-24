@@ -46,7 +46,8 @@ const QuioscoProvider = ({ children }) => {
                 categoriaActual,
                 producto,
                 handleSetProducto,
-                handleChangeModal
+                handleChangeModal,
+                modal
             }}
         >
             {children}
