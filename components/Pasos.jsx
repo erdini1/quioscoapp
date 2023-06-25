@@ -1,10 +1,15 @@
+import { useRouter } from "next/router"
+
 const pasos = [
     { paso: 1, nombre: "Menú", url: "/" },
     { paso: 2, nombre: "Resumen", url: "/resumen" },
-    { paso: 3, nombre: "Total", url: "/total" }
+    { paso: 3, nombre: "Datos y Total", url: "/total" }
 ]
 
 const Pasos = () => {
+
+    const router = useRouter()
+
     return (
         <>
             <div className="flex justify-between mb-5">
@@ -12,6 +17,9 @@ const Pasos = () => {
                     <button
                         key={paso.paso}
                         type=""
+                        onClick={() => {
+                            router.push(paso.url)
+                        }}
                         className="text-2xl font-bold"
                     >
                         {paso.nombre}
