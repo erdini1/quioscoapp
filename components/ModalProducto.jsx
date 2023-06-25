@@ -2,8 +2,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import useQuiosco from '../hooks/useQuiosco';
 import { formatearDinero } from '../helpers';
-import { PlusIcon } from '../public/assets/icons/Plus';
-import { MinusIcon } from '../public/assets/icons/Minus';
 import { CloseIcon } from '../public/assets/icons/Close';
 
 const ModalProducto = () => {
@@ -38,7 +36,19 @@ const ModalProducto = () => {
               setCantidad(cantidad - 1)
             }}
           >
-            <MinusIcon />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-7 h-7"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
           </button>
 
           <p className='text-3xl'>{cantidad}</p>
@@ -50,14 +60,27 @@ const ModalProducto = () => {
               setCantidad(cantidad + 1)
             }}
           >
-            <PlusIcon />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-7 h-7"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
           </button>
         </div>
 
         <button
           type='button'
           className='bg-indigo-600 hover:bg-indigo-800 px-5 py-2 text-white mt-5 font-bold uppercase rounded'
-          onClick={() => handleAgregarPedido({...producto, cantidad})}
+          onClick={() => handleAgregarPedido({ ...producto, cantidad })}
         >
           Añadir al Pedido
         </button>
