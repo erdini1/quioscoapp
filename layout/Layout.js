@@ -43,7 +43,7 @@ export default function Home({ children, pagina }) {
             {modal && (
                 <Modal
                     isOpen={modal}
-                    customStyles={customStyles}
+                    style={customStyles}
                 >
                     <ModalProducto />
                 </Modal>
