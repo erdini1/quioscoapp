@@ -10,13 +10,13 @@ const pasos = [
 const Pasos = () => {
 
     const router = useRouter()
-    const { handleChangePaso, paso } = useQuiosco()
+    const { handleChangePaso } = useQuiosco()
 
     const calcularProgreso = () => {
         let valor
-        if (paso === 1) {
+        if (router.pathname === "/") {
             valor = 2
-        } else if (paso === 2) {
+        } else if (router.pathname === "/resumen") {
             valor = 50
         } else {
             valor = 100
@@ -33,7 +33,6 @@ const Pasos = () => {
                         type=""
                         onClick={() => {
                             router.push(paso.url)
-                            handleChangePaso(paso.paso)
                         }}
                         className="text-2xl font-bold"
                     >
