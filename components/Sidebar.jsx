@@ -7,7 +7,7 @@ const Sidebar = () => {
     const { categorias } = useQuiosco()
 
     return (
-        <>
+        <div className="mt-5">
             <Image
                 width={300}
                 height={100}
@@ -25,7 +25,7 @@ const Sidebar = () => {
                 ))}
             </nav>
 
-        </>
+        </div>
     )
 }
 

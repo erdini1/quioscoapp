@@ -32,7 +32,7 @@ export default function Home({ children, pagina }) {
             </Head>
 
             <div className="md:flex">
-                <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5">
+                <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5 h-screen overflow-y-scroll">
                     <Sidebar />
                 </aside>
 

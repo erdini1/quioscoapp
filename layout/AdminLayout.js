@@ -32,6 +32,8 @@ export default function AdminLayout({ children, pagina }) {
             alt="imagen logotipo"
           />
 
+          {/* TODO: Agregar un nav con las ordenes completas e incompletas. Tambien agregar las funcionalidades que correspondan*/}
+
           <nav className="mt-10">
             <button
               type="button"
@@ -48,10 +50,6 @@ export default function AdminLayout({ children, pagina }) {
               Ordenes Completadas
             </button>
           </nav>
-
-          {/* TODO: AGREGAR UNA PAGINA CON ORDENES COMPLETADAS Y LAS QUE NO ESTAN COMPLETADAS. VER SI HAGO COMPONENTES NUEVOS */}
-          {/* TODO: Agregar la funcionalidad de un filtro en el listado de ordenes, ver de agregarlo al layout */}
-          {/* TODO: Ver que mas le puedo agregar */}
 
         </aside>
 
