@@ -1,11 +1,18 @@
 import Image from 'next/image';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import { formatearDinero } from '../helpers';
 
 const Orden = ({ orden }) => {
 	const { nombre, pedido, total, fecha, id } = orden;
 
-	const completarOrden = () => {
-		console.log(`Completando orden ${id}`);
+	const completarOrden = async () => {
+		try {
+			await axios.post(`/api/ordenes/${id}`);
+            toast.success("Orden Completada")
+        } catch (error) {
+			toast.error("Orden no Completada")
+		}
 	};
 
 	return (
