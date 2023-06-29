@@ -1,25 +1,60 @@
-// import useSWR from 'swr'
-// import axios from "axios"
+import { useEffect, useState } from 'react';
+import axios from "axios"
 import AdminLayout from "../../layout/AdminLayout";
-// import Orden from '../components/Orden';
+import Orden from '../../components/Orden';
 
 export default function Completas() {
 
-    // const fetcher = () => axios("api/ordenes").then(datos => datos.data)
-    // const { data, error, isLoading } = useSWR('/api/ordenes', fetcher, {refreshInterval: 100})
+    const [ordenes, setOrdenes] = useState()
+
+    const obtenerOrdenesCompletadas = async () => {
+        const { data } = await axios('/api/ordenes/ordenesCompletadas');
+        setOrdenes(data)
+    };
+
+    useEffect(() => {
+        obtenerOrdenesCompletadas();
+    }, []);
 
     return (
         <AdminLayout pagina={"Admin"}>
             <h1 className="text-4xl font-black">Panel de Administración</h1>
-            <p className="text-2xl my-10">Administra las ordenes</p>
+            <p className="text-2xl my-10">Listado de ordenes ya finalizadas</p>
 
-            {/* {data && data.length ? data.map(orden =>
+            {ordenes && ordenes.length ? ordenes.map(orden =>
                 <Orden
                     key={orden.id}
                     orden={orden}
                 />
-            ) : <p>No hay ordenes pendientes</p>} */}
+            ) : <p>No hay ordenes completadas</p>}
 
         </AdminLayout>
     )
 }
+
+
+// import useSWR from 'swr'
+// import axios from "axios"
+// import AdminLayout from "../layout/AdminLayout";
+// import Orden from '../components/Orden';
+
+// export default function Admin() {
+
+//     const fetcher = () => axios("api/ordenes").then(datos => datos.data)
+//     const { data, error, isLoading } = useSWR('/api/ordenes', fetcher, {refreshInterval: 100})
+
+//     return (
+//         <AdminLayout pagina={"Admin"}>
+//             <h1 className="text-4xl font-black">Panel de Administración</h1>
+//             <p className="text-2xl my-10">Administra las ordenes</p>
+
+//             {data && data.length ? data.map(orden =>
+//                 <Orden
+//                     key={orden.id}
+//                     orden={orden}
+//                 />
+//             ) : <p>No hay ordenes pendientes</p>}
+
+//         </AdminLayout>
+//     )
+// }

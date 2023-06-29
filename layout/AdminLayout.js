@@ -25,6 +25,9 @@ export default function AdminLayout({ children, pagina }) {
 
       <div className="md:flex">
         <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5 py-5">
+
+          {/* TODO: Agregar un link hacia la pagina principal desde el logo */}
+
           <Image
             width={300}
             height={100}
@@ -40,14 +43,14 @@ export default function AdminLayout({ children, pagina }) {
               className={`${router.pathname === "/admin" ? "bg-amber-400" : ""} p-5 text-2xl font-bold hover:cursor-pointer border hover:bg-amber-400 transition-all w-full }`}
               onClick={() => handleClickOrden(0)}
             >
-              Ordenes Incompletas
+              Ordenes a Completar
             </button>
             <button
               type="button"
               className={`${router.pathname === "/admin/completas" ? "bg-amber-400" : ""} p-5 w-full text-2xl font-bold hover:cursor-pointer border hover:bg-amber-400 transition-all }`}
               onClick={() => handleClickOrden(1)}
             >
-              Ordenes Completadas
+              Ordenes Finalizadas
             </button>
           </nav>
 

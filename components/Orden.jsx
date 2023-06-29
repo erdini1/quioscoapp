@@ -4,14 +4,14 @@ import { toast } from 'react-toastify';
 import { formatearDinero } from '../helpers';
 
 const Orden = ({ orden }) => {
-	const { nombre, pedido, total, fecha, id } = orden;
+	const { nombre, pedido, total, fecha, id, estado } = orden;
 
 	const completarOrden = async () => {
 		try {
 			await axios.post(`/api/ordenes/${id}`);
-            toast.success("Orden Completada")
-        } catch (error) {
-			toast.error("Orden no Completada")
+			toast.success('Orden Completada');
+		} catch (error) {
+			toast.error('Orden no Completada');
 		}
 	};
 
@@ -38,17 +38,22 @@ const Orden = ({ orden }) => {
 					</div>
 				))}
 			</div>
-			<div className="md:flex md:items-center md:justify-between my-10">
-				<p className="mt-5 font-black text-4xl text-amber-500">Total a Pagar: {formatearDinero(total)}</p>
 
-				<button
-					className="bg-indigo-600 hover:bg-indigo-800 text-white mt-5 md:mt-0 uppercase font-bold py-3 px-10 transition-all rounded-lg"
-					type="button"
-					onClick={completarOrden}
-				>
-					Completar Orden
-				</button>
-			</div>
+			{estado ? (
+				<p className="mt-5 font-black text-4xl text-amber-500">Total Pagado: {formatearDinero(total)}</p>
+			) : (
+				<div className="md:flex md:items-center md:justify-between my-10">
+					<p className="mt-5 font-black text-4xl text-amber-500">Total a Pagar: {formatearDinero(total)}</p>
+
+					<button
+						className="bg-indigo-600 hover:bg-indigo-800 text-white mt-5 md:mt-0 uppercase font-bold py-3 px-10 transition-all rounded-lg"
+						type="button"
+						onClick={completarOrden}
+					>
+						Completar Orden
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };
