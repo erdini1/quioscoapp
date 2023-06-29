@@ -26,16 +26,18 @@ export default function AdminLayout({ children, pagina }) {
       <div className="md:flex">
         <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5 py-5">
 
-          {/* TODO: Agregar un link hacia la pagina principal desde el logo */}
-
+          {/* TODO: Agregar un link hacia la pagina principal desde el logo - COMPLETADO*/}
           <Image
             width={300}
             height={100}
             src="/assets/img/logo.svg"
             alt="imagen logotipo"
+            onClick={() => router.push("/")}
+            className="hover:cursor-pointer"
           />
 
-          {/* TODO: Agregar un nav con las ordenes completas e incompletas. Tambien agregar las funcionalidades que correspondan*/}
+          {/* TODO: Agregar un nav con las ordenes completas e incompletas. Tambien agregar las funcionalidades que correspondan - COMPLETADO*/}
+          {/* TODO: Resaltar pagina de ordenes completadas o incompletas - COMPLETADO*/}
 
           <nav className="mt-10">
             <button
